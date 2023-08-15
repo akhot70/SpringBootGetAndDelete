@@ -15,5 +15,10 @@ public interface EmployeeService {
     List<Employee> findByCityandStatusPath(String city, String status);
 
     List<Employee> findByCityPath(String city);
+    
+    
+    public Employee findById(Integer id) throws Exception;
+    
+    public Employee updatePassword(Employee employee);
 
 }

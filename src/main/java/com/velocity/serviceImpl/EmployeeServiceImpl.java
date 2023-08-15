@@ -71,6 +71,30 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> findByCityPath(String city) {
 		return this.employeeRepo.findByCityPath(city);
 	}
+
+	@Override
+	public Employee findById(Integer id) throws Exception {
+	Employee employee	= this.employeeRepo.findById(id);
+	try {
+		if (employee == null)
+			throw new Exception("User not found.");
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+		return employee;
+	
+		
+	}
+
+	@Override
+	public Employee updatePassword(Employee employee) {
+		Employee emp =this.employeeRepo.save(employee);
+		return emp;
+	}
+
+
+	
+	
 }
 
 	

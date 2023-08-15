@@ -9,9 +9,10 @@ import org.springframework.stereotype.Repository;
 import com.velocity.model.Employee;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface EmployeeRepo extends JpaRepository<Employee, Integer> {
+public interface EmployeeRepo extends JpaRepository<Employee, Long> {
 
     @Query(value ="select * from employee e where city=?1" ,nativeQuery = true)
     List<Employee> findByCity(String city);
@@ -24,6 +25,8 @@ public interface EmployeeRepo extends JpaRepository<Employee, Integer> {
 
     @Query(value = "select * from employee e where city=?1",nativeQuery = true)
     List<Employee> findByCityPath(String city);
+    
+    public Employee findById(Integer id);
 
 
 	
